@@ -1,0 +1,32 @@
+<mat-card>
+  <div class="container">
+    <mat-table [dataSource]="servicios" class="table">
+      <ng-container matColumnDef="_id">
+        <mat-header-cell *matHeaderCellDef> No. Servicio </mat-header-cell>
+        <mat-cell *matCellDef="let servicio"> {{ servicio._id }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="empresa">
+        <mat-header-cell *matHeaderCellDef> Empresa </mat-header-cell>
+        <mat-cell *matCellDef="let servicio"> {{ servicio.empresa }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="convenio">
+        <mat-header-cell *matHeaderCellDef>Convenio</mat-header-cell>
+        <mat-cell *matCellDef="let servicio">{{ servicio.convenio}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="paquetes">
+        <mat-header-cell *matHeaderCellDef>Paquetes</mat-header-cell>
+        <mat-cell *matCellDef="let servicio">{{ servicio.paquetes}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="paq_r">
+        <mat-header-cell *matHeaderCellDef>Paquetes Reales</mat-header-cell>
+        <mat-cell *matCellDef="let servicio">{{ servicio.paq_r}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="btn-detalle">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let servicio"><a mat-raised-button color="accent" [routerLink]="['/serv/details', servicio._id]">Ver detalles</a></mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</mat-card>

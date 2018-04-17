@@ -1,0 +1,75 @@
+<mat-card>
+    <mat-card-title>
+        {{ title }}
+    </mat-card-title>
+    <mat-card-content>
+        <form id="formulario" (ngSubmit)="guardaServicio($event)" #servForm="ngForm">
+            <mat-grid-list cols="5" rowHeight="3:1">
+
+                <mat-grid-tile></mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Ruta" [(ngModel)]="data.ruta" type="text" name="ruta" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Empresa" [(ngModel)]="data.empresa" type="text" name="empresa" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Domicilio" [(ngModel)]="data.domicilio" type="text" name="domicilio" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile></mat-grid-tile>
+
+                <mat-grid-tile></mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Contacto" [(ngModel)]="data.contacto" type="text" name="contacto" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Convenio" [(ngModel)]="data.convenio" type="number" name="convenio" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Telefono" [(ngModel)]="data.tel" type="text" name="tel" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile></mat-grid-tile>
+
+                <mat-grid-tile></mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Observaciones" [(ngModel)]="data.obs" name="obs" required></textarea>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Paquetes" type="number" [(ngModel)]="data.paquetes" name="paquetes" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Horario" type="text" [(ngModel)]="data.horario" name="horario" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile></mat-grid-tile>
+
+
+                <mat-grid-tile></mat-grid-tile>
+
+                <mat-grid-tile colspan="5">
+
+                    <button mat-raised-button type="submit" color="primary" (click)="openSnackBar()" [disabled]="!servForm.form.valid">Registrar</button>
+
+                </mat-grid-tile>
+            </mat-grid-list>
+
+        </form>
+    </mat-card-content>
+</mat-card>

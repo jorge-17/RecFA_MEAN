@@ -1,0 +1,59 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            {{title}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            Servicio No.: {{serv._id}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-grid-list cols="3" rowHeight="7:1">
+            <mat-grid-tile>
+                Ruta: {{serv.ruta}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Empresa: {{serv.empresa}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Domicilio: {{serv.domicilio}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Contacto: {{serv.contacto}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Convenio: {{serv.convenio}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Telefono: {{serv.tel}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Observacones: {{serv.obs}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Paquetes: {{serv.paquetes}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Horario: {{serv.horario}}
+            </mat-grid-tile>
+            <mat-divider></mat-divider>
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <form id="formulario" (ngSubmit)="actualizaServicio($event)" #servForm="ngForm">
+
+        <mat-form-field>
+            <input matInput placeholder="Paquetes reales" [(ngModel)]="data.paq_r" required type="text" name="paq_r">
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <input matInput placeholder="Nombre de quien entrega" [(ngModel)]="data.nombre_e" required type="text" name="nombre_e">
+        </mat-form-field>
+
+
+        <button type="submit" mat-raised-button mat-button color="primary" [disabled]="!servForm.form.valid">Ingresar Datos</button>
+
+    </form>
+</mat-card>

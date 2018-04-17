@@ -1,0 +1,48 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            {{title}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            Servicio No.: {{serv._id}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-grid-list cols="3" rowHeight="7:1">
+            <mat-grid-tile>
+                Ruta: {{serv.ruta}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Empresa: {{serv.empresa}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Domicilio: {{serv.domicilio}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Contacto: {{serv.contacto}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Convenio: {{serv.convenio}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Telefono: {{serv.tel}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Observacones: {{serv.obs}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Paquetes: {{serv.paquetes}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Horario: {{serv.horario}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+              Paquetes reales: {{serv.paq_r}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+              Nombre quien entrego: {{serv.nombre_e}}
+            </mat-grid-tile>
+            <mat-divider></mat-divider>
+      </mat-grid-list>
+      </mat-card-content>
+</mat-card>
