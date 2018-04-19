@@ -23,7 +23,7 @@ router.get('/show/pendientes', function(req, res, next) {
 
 /* GET todas las rutas distintas de los servicios*/
 router.get('/show/distRutas', function(req, res, next){
-  Serv.distinct('ruta',function(err, products){
+  Serv.distinct('ruta', {'nombre_e' : { $exists : false}},function(err, products){
     if(err) return next(err);
     res.json(products);
   })
@@ -31,7 +31,7 @@ router.get('/show/distRutas', function(req, res, next){
 
 /*GET servicios By ruta*/
 router.get('/show/serviciosByRuta/:ruta', function(req, res, next) {
-  Serv.find({$and: [{'ruta' : req.params.ruta},{'nombre_e' : { $exists : true}}]},function(err, products){
+  Serv.find({$and: [{'ruta' : req.params.ruta},{'nombre_e' : { $exists : false}}]},function(err, products){
     if(err) return next(err);
     res.json(products);
   });

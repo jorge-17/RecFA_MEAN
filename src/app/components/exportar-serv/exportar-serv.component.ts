@@ -29,14 +29,12 @@ export class ExportarServComponent implements OnInit {
     this.service.getServRutas().subscribe(res => {
       // @jrodarte - Se añaden los registros devueltos por el servicio a la variable
       this.rutas = res;
-      console.log(this.rutas);
     });
   }
 
   getServiciosByRuta(e){
     this.service.getServiciosByRuta(this.ruta).subscribe(res => {
       this.servicios = res;
-      console.log(this.servicios);
     });
 
     this.displayedColumns = ['ruta', '_id'];

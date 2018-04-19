@@ -6,7 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceService } from './service.service';
 import { FormsModule } from '@angular/forms';
-import { MatCardModule, MatTabsModule, MatInputModule, MatGridListModule, MatButtonModule, MatTableModule, MatDividerModule, MatFormFieldModule, MatSnackBarModule, MatSelectModule, MatListModule/*Agregar los componentes necesarios */} from '@angular/material';
+import { MatCardModule, MatTabsModule, MatInputModule, MatGridListModule, MatButtonModule,
+   MatTableModule, MatDividerModule, MatFormFieldModule, MatSnackBarModule, MatSelectModule, 
+   MatListModule, MatIconModule/*Agregar los componentes necesarios */} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -47,6 +49,7 @@ import { ServiciosCompletosComponent } from './components/servicios-completos/se
     MatSnackBarModule,
     MatSelectModule,
     MatListModule,
+    MatIconModule,
     /*----------------------------------------------------------------------*/
     BrowserAnimationsModule,
     HttpClientModule,
