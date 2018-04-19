@@ -43,7 +43,7 @@ export class ExportarServComponent implements OnInit {
 
   exportarCSV(){
     var opt = {
-      headers: ["No. Servicio", "Ruta", "Empresa", "Direccion", "Contacto", "Convenio", "Telefono", "Obs.", "Paquetes", "Horario", "-", "Nombre Entrega", "Paquetes Reales"]
+      headers: ["No. Servicio", "Ruta", "Empresa", "Direccion", "Contacto", "Convenio", "Telefono", "Obs.", "Paquetes", "Horario", "-"]
     }
     new Angular5Csv(this.servicios, 'Servicios '+this.ruta, opt);
   }
