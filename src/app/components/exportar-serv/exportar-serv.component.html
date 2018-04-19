@@ -11,6 +11,7 @@
                 <mat-option *ngFor='let ruta of rutas' (click)="getServiciosByRuta(ruta)" [value]='ruta'>{{ ruta }}</mat-option>
             </mat-select>
         </mat-form-field>
+        <button mat-raised-button type="submit" color="primary" (click)="exportarCSV()">Exportar</button>
     </mat-card-content>
     <mat-divider></mat-divider>
     <mat-table [dataSource]="servicios" class="table">

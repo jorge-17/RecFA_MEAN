@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ServiceService } from '../../service.service';
 import { NgForm } from '@angular/forms';
+import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 @Component({
   selector: 'app-exportar-serv',
@@ -42,7 +43,12 @@ export class ExportarServComponent implements OnInit {
     this.dataSource = this.servicios; 
   }
 
-
+  exportarCSV(){
+    var opt = {
+      headers: ["No. Servicio", "Ruta", "Empresa", "Direccion", "Contacto", "Convenio", "Telefono", "Obs.", "Paquetes", "Horario", "-", "Nombre Entrega", "Paquetes Reales"]
+    }
+    new Angular5Csv(this.servicios, 'Servicios '+this.ruta, opt);
+  }
   
 
 }
