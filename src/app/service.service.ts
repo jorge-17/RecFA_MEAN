@@ -13,32 +13,32 @@ export class ServiceService {
     //const uri = 'http://localhost:3000/serv/add';
     const obj = data;
     this.http.post(uri, obj)
-        .subscribe(res => console.log('Done'));
+      .subscribe(res => console.log('Done'));
   }
 
   getServiciosPend() {
     const uri = 'https://recolecciones-fa.herokuapp.com/serv/show/pendientes';
     //const uri = 'http://localhost:3000/serv/show/pendientes';
     return this
-            .http
-            .get(uri)
-            .map(res => {
-              return res;
-            });
+      .http
+      .get(uri)
+      .map(res => {
+        return res;
+      });
   }
 
   getServiciosComp() {
     const uri = 'https://recolecciones-fa.herokuapp.com/serv/show/completos';
     //const uri = 'http://localhost:3000/serv/show/completos';
     return this
-            .http
-            .get(uri)
-            .map(res => {
-              return res;
-            });
+      .http
+      .get(uri)
+      .map(res => {
+        return res;
+      });
   }
 
-  getServiciosByRuta(ruta){
+  getServiciosByRuta(ruta) {
     const uri = 'https://recolecciones-fa.herokuapp.com/serv/show/serviciosByRuta/' + ruta;
     //const uri = 'http://localhost:3000/serv/show/serviciosByRuta/' + ruta;
     return this.http.get(uri).map(res => {
@@ -46,26 +46,26 @@ export class ServiceService {
     });
   }
 
-  editServicios(id){
+  editServicios(id) {
     const uri = 'https://recolecciones-fa.herokuapp.com/serv/' + id;
     //const uri = 'http://localhost:3000/serv/' + id;
     return this
-            .http
-            .get(uri)
-            .map(res => {
-              return res;
-            });
+      .http
+      .get(uri)
+      .map(res => {
+        return res;
+      });
   }
 
-  editServiciosByNombre(nombre){
+  editServiciosByNombre(nombre) {
     const uri = 'https://recolecciones-fa.herokuapp.com/serv/' + nombre;
     //const uri = 'http://localhost:3000/serv/' + nombre;
     return this
-            .http
-            .get(uri)
-            .map(res => {
-              return res;
-            });
+      .http
+      .get(uri)
+      .map(res => {
+        return res;
+      });
   }
 
   updateServicio(data, id) {
@@ -78,7 +78,7 @@ export class ServiceService {
       .subscribe(res => console.log('Done'));
   }
 
-  getServRutas(){
+  getServRutas() {
     const uri = 'https://recolecciones-fa.herokuapp.com/serv/show/distRutas';
     //const uri = 'http://localhost:3000/serv/show/distRutas';
     return this.http.get(uri).map(res => {

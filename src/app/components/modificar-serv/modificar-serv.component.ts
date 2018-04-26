@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ServiceService } from '../../service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 import { NgForm } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-modificar-serv',
@@ -17,7 +18,7 @@ export class ModificarServComponent implements OnInit {
   data = {};
   title = "Actualizar Servicio";
 
-  constructor(private servicio: ServiceService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private servicio: ServiceService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     // @jrodarte - Se manda llamar al metodo getServicio pasandole el parametro ID de la URL
@@ -38,6 +39,37 @@ export class ModificarServComponent implements OnInit {
   actualizaServicio(){
     // @jrodarte - Se envian los datos al servicio para actualizar la base de datos
     this.servicio.updateServicio(this.data, this.serv._id);
+    this.data = {
+      paq_r: '',
+      nombre_e: ''
+    }
+    this.openDialog();
   }
 
+  openDialog(): void{
+    let dialogRef = this.dialog.open(DialogFinishEdit, {
+      width: '250 px'
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log('Se Modifico correctamente (Dialogo Cerrado)');
+    });
+  }
+
+}
+
+@Component({
+  selector: 'dialogEdit',
+  templateUrl: 'dialogoEdit.html'
+})
+
+export class DialogFinishEdit{
+  constructor(
+    public dialogRef: MatDialogRef<DialogFinishEdit>, 
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ){}
+
+  onNoClick(): void{
+    this.dialogRef.close();
+  }
 }

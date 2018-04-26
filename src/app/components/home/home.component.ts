@@ -1,12 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ServiceService } from '../../service.service';
-import { MatSnackBar } from '@angular/material';
-
-@Component({
-  template: '<span>Servicio almacenado correctamente</span>'
-})
-export class PizzaPartyComponent { }
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +15,7 @@ export class HomeComponent implements OnInit {
   // @jrodarte - Objeto donde se iran almacenando los objetos para ser registrados
   data = {};
 
-  constructor(private servicioService: ServiceService, public snackBar: MatSnackBar) { }
+  constructor(private servicioService: ServiceService, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -28,6 +23,41 @@ export class HomeComponent implements OnInit {
   guardaServicio(e) {
     // @jrodarte - Se manda llamar al servico de agregar servicio nuevo
     this.servicioService.addServicio(this.data);
+    this.data = {
+      ruta: '',
+      empresa: '',
+      domicilio: '',
+      contacto: '',
+      convenio: '',
+      tel: '',
+      obs: '',
+      paquetes : '',
+      horario: ''
+    }
+    this.openDialog();
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(DialogoFinishInsert, {
+      width: '250px'      
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log('Se registro correctamente (Dialogo cerrado)');
+    });
+  }
+}
+
+@Component({
+  selector: 'dialogInsert',
+  templateUrl: 'dialogoInsert.html'
+})
+export class DialogoFinishInsert{
+  constructor(
+    public dialogRef: MatDialogRef<DialogoFinishInsert>, @Inject(MAT_DIALOG_DATA) public data: any
+  ){}
+  onNoClick(): void{
+    this.dialogRef.close();
   }
 }
 
